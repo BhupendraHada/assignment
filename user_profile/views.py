@@ -121,11 +121,10 @@ def register_page(request):
             except Exception as e:
                 print e.__str__()
                 return render(request, 'registration/register.html', {'form': form})
-
             user = User.objects.create(username=form.cleaned_data['username'], password=make_password(form.cleaned_data['password'], None, 'md5'),
                                        email=form.cleaned_data['email'], first_name=form.cleaned_data['firstname'],
                                        last_name=form.cleaned_data['lastname'])
-            send_verification_email(user.id, ["demouser@gmail.com"])
+            send_verification_email(user.id, [user.email])
             return HttpResponseRedirect(reverse_lazy('login_page'))
     form = RegistrationForm()
     return render(request, 'registration/register.html', {'form': form})

@@ -5,20 +5,23 @@
 
 <form method="post" action="/user_profile/register/">
 {% csrf_token %}
-
-{% for field in form.visible_fields %}
-    <table>
+<table border="1" style="border-collapse: collapse;width:50%">
+    {% for field in form.visible_fields %}
+        <tbody>
         <tr>
-            <th>{{ field.label_tag }}</th>
-            <th>{{ field }}</th>
-            <th>{% for err in field.errors %}
+
+            <td style="width:28%">{{ field.label_tag }}</td>
+            <td style="width:38%">{{ field }}</td>
+            <td style="width:34%">{% for err in field.errors %}
                     {{ err }}
                 {% endfor %}
-            </th>
+            </td>
         </tr>
-    </table>
-    <br>
-{% endfor %}
+        </tbody>
+    {% endfor %}
+</table>
+
+
 <input type="submit" value="register" />
 </form>
 {% endblock %}

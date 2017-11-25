@@ -120,4 +120,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'demo@gmail.com'
 EMAIL_HOST_PASSWORD = 'demo'
 EMAIL_PORT = 587
-EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
+

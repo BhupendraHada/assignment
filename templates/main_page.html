@@ -3,30 +3,26 @@
 {%block head %}Welcome{% endblock %}
 {%block content %}
 {% if user.username %}
-<p>Welcome {{ user.username }} !Here your page content</p>
-    <div class="row">
-        <table class=""  id="user_profile_table" width="50%" cellspacing="0" style="width:60%;height:70%;border:1px solid black;padding:15px 10px;">
-            <thead>
-                <tr>
-                    <th>First Name</th>
-                    <th>Last  Name</th>
-                    <th>Username</th>
-                    <th>E-mail</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="profile_row" style="font-family:Arial,Helvetica Neue,Helvetica,sans-serif; font-size:15px;">
-                    <td> {{user.first_name}} </td>
-                    <td>{{ user.last_name }}</td>
-                    <td>{{user.username}}</td>
-                    <td>{{user.email}}</td>
-                <tr>
-            </tbody>
-        </table>
-    </div>
-
+<p>Welcome {{ user.username }}</p>
+    <table id="user_profile_table" style="width:60%;height:70%;padding:15px 10px;border-collapse: collapse;" border="1">
+        <thead>
+            <tr style="text-align:left">
+                <th>First Name</th>
+                <th>Last  Name</th>
+                <th>Username</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="profile_row" style="font-family:Arial,Helvetica Neue,Helvetica,sans-serif; font-size:15px;">
+                <td> {{user.first_name}} </td>
+                <td>{{ user.last_name }}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+            <tr>
+        </tbody>
+    </table>
 {% else %}
-<p>Welcome anonymous user!
-You need to login</p><br/>
+    <p>Welcome anonymous user! You need to login</p><br/>
 {% endif %}
 {% endblock %}
